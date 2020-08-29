@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TunTun</title>
+        <link rel="icon" href="./logo.svg">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="grid-container">
+            <header class="header">
+                <div class="brand">
+                    <button onclick="openmenu()">&#9776;</button>
+                    <a href="#">TunTun</a>
+                </div>
+                <div class="header-links">
+                    <a href="#">cart | </a>
+                    <a href="#">SignIn</a>
+                </div>
+            </header>
+            <aside class="sidebar">
+                <h3>Categories</h3>
+                <button onclick="closemenu()" class="sidebar-close-button">❌  </button>
+                <ul>
+                    <li>
+                        <a href="#">Laptops</a>
+                    </li>
+                    <li>
+                        <a href="#">Mobiles</a>
+                    </li>
+                </ul>
+            </aside>
+            <main class="main">
+                <div class="content">
+                        <ul  class="products">
+                            <li>
+                                <div class="product">
+                                    <img src="https://www.hihonor.com/content/dam/honor/global/products/laptop/magicbook15/img/pic-sec-03-magicbook.png" alt="product" class="product-image" />
+                                    <div class="product-name">
+                                        <a href="product.html">Honor MagicBook 15</a>
+                                    </div>
+                                    <div class="product-brand">Honor</div>
+                                    <div class="product-price">Rs 39,999</div>
+                                    <div class="product-rating">4.2 Stars(25 reviews)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product">
+                                    <img src="https://www.hihonor.com/content/dam/honor/global/products/laptop/magicbook15/img/pic-sec-03-magicbook.png" alt="product" class="product-image" />
+                                    <div class="product-name">
+                                        <a href="product.html">Honor MagicBook 15</a>
+                                    </div>
+                                    <div class="product-brand">Honor</div>
+                                    <div class="product-price">Rs 39,999</div>
+                                    <div class="product-rating">4.2 Stars(25 reviews)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product">
+                                    <img src="https://www.hihonor.com/content/dam/honor/global/products/laptop/magicbook15/img/pic-sec-03-magicbook.png" alt="product" class="product-image" />
+                                    <div class="product-name">
+                                        <a href="product.html">Honor MagicBook 15</a>
+                                    </div>
+                                    <div class="product-brand">Honor</div>
+                                    <div class="product-price">Rs 39,999</div>
+                                    <div class="product-rating">4.2 Stars(25 reviews)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product">
+                                    <img src="https://www.hihonor.com/content/dam/honor/global/products/laptop/magicbook15/img/pic-sec-03-magicbook.png" alt="product" class="product-image" />
+                                    <div class="product-name">
+                                        <a href="product.html">Honor MagicBook 15</a>
+                                    </div>
+                                    <div class="product-brand">Honor</div>
+                                    <div class="product-price">Rs 39,999</div>
+                                    <div class="product-rating">4.2 Stars(25 reviews)</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="product">
+                                    <img src="https://www.hihonor.com/content/dam/honor/global/products/laptop/magicbook15/img/pic-sec-03-magicbook.png" alt="product" class="product-image" />
+                                    <div class="product-name">
+                                        <a href="product.html">Honor MagicBook 15</a>
+                                    </div>
+                                    <div class="product-brand">Honor</div>
+                                    <div class="product-price">Rs 39,999</div>
+                                    <div class="product-rating">4.2 Stars(25 reviews)</div>
+                                </div>
+                            </li>
+                        </ul>
+                </div>
+            </main>
+            <footer class="footer">
+                <div>All rights reserved</div>
+                <div>TunTun</div>
+                <div>&copy;Ragavan&co</div>
+            </footer>
+        </div>
+        <script>
+            function openmenu(){
+                document.querySelector(".sidebar").classList.add("open");
+            }
+            function closemenu(){
+                document.querySelector(".sidebar").classList.remove("open");
+            }
+        </script>
+    </body>
+</html>

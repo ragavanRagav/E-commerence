@@ -1,0 +1,138 @@
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+body{
+    font: 1.6rem Helvetica;
+    height: 100vh;
+    margin:0;
+}
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 5rem;
+    height: 100%;
+}
+/* Header Section */
+.header{
+    grid-area: header;
+    background-color: rgba(204, 131, 43, 0.87);
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+.brand a,.header-links a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.brand a:hover,.header-links a:hover{
+    color: rgb(43, 174, 226);
+}
+/* Main Section(Showing Products) */
+.main{
+    grid-area: main;
+    background-color: rgb(184, 83, 83);
+}
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.products li{
+    background-color: rgba(99, 92, 83, 0.705);
+    text-align: center;
+    list-style-type: none;
+    padding: 0;
+    flex: 0 1 34rem;
+    margin: 2rem;
+    height: 50rem;
+    border-bottom: .1rem solid rgb(241, 226, 226);
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.product-name{
+    font-size: 2rem;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    color: orange;
+}
+.product-brand{
+    font-size: 1.2rem; 
+}
+.product-price{
+    font-size: 2.5rem; 
+    font-weight: bold;
+}
+.product-image{
+    max-width: 34rem;
+    max-height: 34rem;
+}
+.product-rating{
+    margin-bottom: 1rem;
+}
+/* Footer Section */
+.footer{
+    grid-area: footer;
+    background-color: rgba(204, 131, 43, 0.87);
+    color: #ffffff;
+    display: flex;
+    padding: 0.5rem;
+    text-transform: capitalize;
+    justify-content: space-between;
+    align-items: center;
+    font: 2rem sans-serif;
+}
+/* Sidebar */
+.brand button{
+    font-size: 3rem;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+}
+.sidebar{
+    position: fixed;
+    transform: translateX(-30rem);
+    width: 30rem;
+    background-color: rgb(182, 146, 114);
+    height: 100%;
+    text-align: justify;
+    transition: all 1s;
+}
+.sidebar.open{
+    transform: translateX(0);
+}
+.sidebar-close-button{
+    border-radius: 50%;
+    border: 0.1rem solid black;
+    width: 3rem;
+    height: 3rem;
+    outline:none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+}
+li{
+    list-style-type: none;
+}

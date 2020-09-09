@@ -16,7 +16,6 @@ const listProduct = () =>async(dispatch) =>{
 
 const saveProduct = (product) => async (dispatch, getState)=>{
   try {
-    console.log(" Pro "+product);
     dispatch({ type: PRODUCT_SAVE_REQUEST, payload: product });
     const { userSign: { userInfo } } = getState();
     const { data } = await Axios.post('/api/products',product,{headers:{
@@ -24,6 +23,7 @@ const saveProduct = (product) => async (dispatch, getState)=>{
     }});
     dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data});
   } catch (error) {
+    console.log(error);
     dispatch({ type: PRODUCT_SAVE_FAIL, payload: error.message});
   }
 }

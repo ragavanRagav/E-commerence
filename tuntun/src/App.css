@@ -45,7 +45,7 @@ h3{
 /* Main Section(Showing Products) */
 .main{
   grid-area: main;
-  background-color: rgba(190, 210, 236, 0.815);
+  background-color: rgba(153, 197, 238, 0.815);
 }
 .products{
   display: flex;

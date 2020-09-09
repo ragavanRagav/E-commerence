@@ -5,14 +5,12 @@ import { saveProduct } from '../actions/productActions';
 
 export default function AddProduct() {
     const [name, setName] = useState('');
-    const [Price, setPrice] = useState('');
+    const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
     const [brand, setBrand] = useState('');
     const [category, setCategory] = useState('');
     const [countInStock, setCountInStock] = useState('');
     const [description, setDescription] = useState('');
-    const [rating, setRating] = useState('');
-    const [numReviews, setNumReviews] = useState('');
     const productSave = useSelector(state => state.productSave);
     const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
     const dispatch = useDispatch();
@@ -23,17 +21,19 @@ export default function AddProduct() {
     },[])
     const submitHandler = (e)=>{
         e.preventDefault();
-        dispatch(saveProduct({name,Price,image,brand,category,countInStock,description,rating,numReviews}));
+        dispatch(saveProduct({name,price,image,brand,category,countInStock,description}));
+        document.querySelector("#addProductForm").reset();
     }
     return (
         <div className="form">
-            <form onSubmit={submitHandler}>
+            <form id="addProductForm" onSubmit={submitHandler}>
                 <ul className="form-container">
                     <li>
                         <h2>Add new Product</h2>
                     </li>
                     <li>
                         {loadingSave && <div>Loading...</div>}
+                        {successSave && <div>Product created Successfully</div>}
                         {errorSave && <div>{errorSave}</div>}
                     </li>
                     <li>
@@ -45,7 +45,7 @@ export default function AddProduct() {
                         <input type="text" name="price" id="price" onChange={(e)=> setPrice(e.target.value)} />
                     </li>
                     <li>
-                        <label htmlFor="image">Image:</label>
+                        <label htmlFor="image">Image URL:</label>
                         <input type="text" name="image" id="image" onChange={(e)=> setImage(e.target.value)} />
                     </li>
                     <li>
@@ -63,14 +63,6 @@ export default function AddProduct() {
                     <li>
                         <label htmlFor="description">Description:</label>
                         <textarea name="description" id="name" onChange={(e)=>setDescription(e.target.value)} />
-                    </li>
-                    <li>
-                        <label htmlFor="numReviews">NumReviews:</label>
-                        <input type="text" name="numReviews" id="numReviews" onChange={(e)=> setNumReviews(e.target.value)} />
-                    </li>
-                    <li>
-                        <label htmlFor="rating">Rating</label>
-                        <input type="text" name="rating" id="rating" onChange={(e)=> setRating(e.target.value)} />
                     </li>
                     <li>
                         <button type="submit" className="button primary" >Add Product</button>

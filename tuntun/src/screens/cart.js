@@ -15,7 +15,8 @@ function Cart(props) {
         dispatch(removeFromCart(productId));
     }
     const checkoutHandler =()=>{
-        props.history.push("/signin?redirect=shipping");
+        (userInfo)?props.history.push("/address?redirect=shipping"):
+        props.history.push("/signin?redirect=shipping")
     }
     useEffect(()=>{
         if(productId){
@@ -34,7 +35,7 @@ function Cart(props) {
                             cartItems.length ===0?
                             <li><h3>Cart is Empty!&nbsp;<Link to="/">Let's purchase something</Link></h3></li>:
                             cartItems.map(item =>
-                                <li className="cart-item" key={item.id}>
+                                <li key={item.id}>
                                     <div className="cart-image">
                                         <img src={item.image} alt="product" />
                                     </div>
@@ -65,8 +66,6 @@ function Cart(props) {
                     Subtotal ( {cartItems.reduce((a, c) => a + c.qty, 0)} items):
                     &#8377; {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
                 </h3>
-
-                
                 <button onClick={checkoutHandler}  className="button primary" disabled={cartItems.length === 0}>
                     Proceed to Checkout
                 </button>

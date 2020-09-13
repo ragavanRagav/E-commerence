@@ -10,6 +10,9 @@ import {BrowserRouter, Route,Link} from 'react-router-dom';
 import Footer from './footer';
 import { useSelector } from 'react-redux';
 import addProduct from './screens/addProduct';
+import Address from './screens/address';
+import Thankyou from './screens/thankyou';
+import Category from './screens/category';
 
 function App() {
     const userSignin = useSelector(state=>state.userSign);
@@ -41,8 +44,18 @@ function App() {
                 <h3>Categories</h3>
                 <p onClick={closemenu} className="sidebar-close-button">&#9938;</p>
                 <ul>
-                    <li><Link to="category/laptop">Laptops </Link></li>
-                    <li><Link to="category/mobile">Mobiles </Link></li>
+                    <li><Link to={{
+                        pathname:"/category",
+                        aboutProps:{
+                            name:"laptop"
+                        }
+                    }}>Laptops </Link></li>
+                    <li><Link to={{
+                        pathname:"/category",
+                        aboutProps:{
+                            name:"mobile"
+                        }
+                    }}>Mobiles </Link></li>
                 </ul>
             </aside>
             <main className="main">
@@ -50,9 +63,12 @@ function App() {
                     <Route path="/signIn" component={SignIn} />
                     <Route path="/register" component={Register} />
                     <Route path="/products/:id" component={Product} />
+                    <Route path="/category/" component={Category} />
                     <Route path="/productSave" component={addProduct} />
                     <Route path="/cart/:id?" component={Cart} />
+                    <Route path="/address" component={Address} />
                     <Route path="/profile" component={Profile} />
+                    <Route path="/placed" component={Thankyou} />
                     <Route path="/" exact={true} component={HomeScreen} />
                 </div>
             </main>

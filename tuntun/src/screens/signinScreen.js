@@ -12,7 +12,7 @@ export default function SignIn(props) {
     const dispatch = useDispatch();
     useEffect(() => {
         if(userInfo){
-            props.history.push("/");
+            props.history.push("/profile");
         }
         return () => {
         }
@@ -31,7 +31,7 @@ export default function SignIn(props) {
                         </li>
                         <li>
                             {loading && <div>Loading...</div>}
-                            {error && <div>{error}</div>}
+                            {error && <div>Email or password is incorrect</div>}
                         </li>
                         <li>
                             <label htmlFor="email">Email</label>

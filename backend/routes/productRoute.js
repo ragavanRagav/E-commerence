@@ -5,9 +5,6 @@ import { getToken, isAuth, isAdmin } from '../util';
 const router = express.Router();
 
 router.get('/', async (req,res)=>{
-    // const category = req.query.category ? { category: req.query.category } : {};
-    // console.log(category);
-  // const products = await Product.find({ ...category});
     const products = await Product.find({});
     res.send(products);
 });
@@ -40,5 +37,16 @@ router.get('/:id', async (req, res) => {
       res.status(404).send({ message: 'Product Not Found.' });
     }
   });
+
+  
+router.delete('/:id', isAuth, isAdmin, async (req, res) => {
+  const deletedProduct = await Product.findById(req.params.id);
+  if (deletedProduct) {
+    await deletedProduct.remove();
+    res.send({ message: 'Product Deleted' });
+  } else {
+    res.send('Error in Deletion.');
+  }
+});
 
 export default router;

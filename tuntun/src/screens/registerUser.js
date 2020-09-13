@@ -8,19 +8,25 @@ export default function Register(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repassword, setRepassword] = useState('');
+    const [match, setMatch] = useState('')
     const userRegister = useSelector(state=>state.userRegister);
     const {loading,userInfo,error} = userRegister;
     const dispatch = useDispatch();
     useEffect(() => {
         if(userInfo){
-            props.history.push("/");
+            props.history.push("/signIn");
         }
         return () => {
         }
     },[userInfo]);
     const submitHandler =(e)=>{
         e.preventDefault();
-        dispatch(register(name,email,password));
+        if(password !== repassword){
+            setMatch(true);
+        }
+        else{
+            dispatch(register(name,email,password));
+        }
     }
     const imgUrl = "https://s3-ap-northeast-1.amazonaws.com/peatix-files/user/5562732/240administrator-male.png";
     return (
@@ -49,8 +55,12 @@ export default function Register(props) {
                         </li>
                         <li>
                             <label htmlFor="repassword">Re-type Password</label>
-                            <input type="password" name="repassword" id="repassword" onChange={(e)=> setRepassword(e.target.value)} required />
+                            <input type="password" name="repassword" id="repassword" onChange={(e)=> {
+                                setRepassword(e.target.value)
+                                setMatch(false)}}
+                            required />
                         </li>
+                        {(match)?<span>Password missmatch</span>:""}
                         <li>
                             <button type="submit" className="button primary" >Register</button>
                         </li>
